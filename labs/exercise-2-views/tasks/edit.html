@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aufgabe bearbeiten</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="py-12">
+    <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
+      <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+        <div class="px-6 py-4 border-b border-gray-200">
+          <div class="flex justify-between items-center">
+            <h2 class="text-xl font-semibold text-gray-900">Aufgabe bearbeiten</h2>
+            <div class="flex space-x-2">
+              <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors">Zur Aufgabe</a>
+              <span class="text-gray-300">|</span>
+              <a href="#" class="text-gray-600 hover:text-gray-800 transition-colors">Zur Liste</a>
+            </div>
+          </div>
+        </div>
+
+        <form method="POST" action="#" class="p-6 space-y-6">
+          <!-- Title -->
+          <div>
+            <label for="title" class="block text-sm font-medium text-gray-700">
+              Titel <span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value="Landingpage überarbeiten"
+              required
+              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Geben Sie einen aussagekräftigen Titel ein"
+            />
+            <!-- <p class="mt-1 text-sm text-red-600">Fehlermeldung Beispiel</p> -->
+          </div>
+
+          <!-- Description -->
+          <div>
+            <label for="description" class="block text-sm font-medium text-gray-700">Beschreibung</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="4"
+              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              placeholder="Detaillierte Beschreibung der Aufgabe (optional)"
+            >Hero-Text anpassen, CTA hervorheben, Bilder optimieren.</textarea>
+          </div>
+
+          <!-- Status, Priority, Due Date -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Status -->
+            <div>
+              <label for="status" class="block text-sm font-medium text-gray-700">
+                Status <span class="text-red-500">*</span>
+              </label>
+              <select
+                name="status"
+                id="status"
+                required
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="pending">Offen</option>
+                <option value="in_progress" selected>In Bearbeitung</option>
+                <option value="completed">Abgeschlossen</option>
+                <option value="cancelled">Abgebrochen</option>
+              </select>
+            </div>
+
+            <!-- Priority -->
+            <div>
+              <label for="priority" class="block text-sm font-medium text-gray-700">
+                Priorität <span class="text-red-500">*</span>
+              </label>
+              <select
+                name="priority"
+                id="priority"
+                required
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="low">Niedrig</option>
+                <option value="medium" selected>Mittel</option>
+                <option value="high">Hoch</option>
+                <option value="urgent">Dringend</option>
+              </select>
+            </div>
+
+            <!-- Due Date -->
+            <div>
+              <label for="due_date" class="block text-sm font-medium text-gray-700">Fälligkeitsdatum</label>
+              <input
+                type="date"
+                name="due_date"
+                id="due_date"
+                value="2025-09-20"
+                class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
+
+          <!-- Category (Beispiel) -->
+          <div>
+            <label for="category_id" class="block text-sm font-medium text-gray-700">Kategorie</label>
+            <select
+              name="category_id"
+              id="category_id"
+              class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="">Keine Kategorie</option>
+              <option value="1" data-color="#2563eb" selected>Marketing</option>
+              <option value="2" data-color="#16a34a">Entwicklung</option>
+              <option value="3" data-color="#f59e0b">Organisation</option>
+            </select>
+          </div>
+
+          <!-- Tags (Beispiel) -->
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2">Tags</label>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors bg-blue-50 border-blue-300">
+                <input type="checkbox" name="tags[]" value="1" checked class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">landing</span>
+              </label>
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                <input type="checkbox" name="tags[]" value="2" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">hero</span>
+              </label>
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors bg-blue-50 border-blue-300">
+                <input type="checkbox" name="tags[]" value="3" checked class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">a/b-test</span>
+              </label>
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                <input type="checkbox" name="tags[]" value="4" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">assets</span>
+              </label>
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                <input type="checkbox" name="tags[]" value="5" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">seo</span>
+              </label>
+              <label class="flex items-center p-2 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                <input type="checkbox" name="tags[]" value="6" class="rounded border-gray-300 text-blue-600 focus:ring-blue-500" />
+                <span class="ml-2 text-sm text-gray-700">ux</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Current Status Display -->
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="text-sm font-medium text-gray-900 mb-2">Aktuelle Informationen</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div>
+                <span class="text-gray-500">Erstellt:</span>
+                <span class="text-gray-900">01.09.2025 10:15</span>
+              </div>
+              <div>
+                <span class="text-gray-500">Zuletzt bearbeitet:</span>
+                <span class="text-gray-900">06.09.2025 14:42</span>
+              </div>
+              <!-- Falls abgeschlossen:
+              <div>
+                <span class="text-gray-500">Abgeschlossen:</span>
+                <span class="text-gray-900">07.09.2025 09:30</span>
+              </div>
+              -->
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="flex justify-between pt-6 border-t border-gray-200">
+            <div class="flex space-x-2">
+              <a
+                href="#"
+                class="px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              >
+                Abbrechen
+              </a>
+            </div>
+
+            <div class="flex space-x-2">
+              <!-- Speichern & Abschließen (setzt Status auf completed) -->
+              <button
+                type="submit"
+                name="action"
+                value="complete"
+                onclick="document.getElementById('status').value='completed'"
+                class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+              >
+                Speichern &amp; Abschließen
+              </button>
+
+              <button
+                type="submit"
+                class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              >
+                Änderungen speichern
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="mt-6 bg-white overflow-hidden shadow-sm rounded-lg border border-red-200">
+        <div class="px-6 py-4 border-b border-red-200 bg-red-50">
+          <h3 class="text-lg font-medium text-red-900">Gefahrenzone</h3>
+        </div>
+        <div class="px-6 py-4">
+          <div class="flex justify-between items-center">
+            <div>
+              <h4 class="text-sm font-medium text-gray-900">Aufgabe löschen</h4>
+              <p class="text-sm text-gray-500">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+            </div>
+            <form method="POST" action="#" onsubmit="return confirm('Sind Sie absolut sicher, dass Sie diese Aufgabe löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.')">
+              <button
+                type="submit"
+                class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                Aufgabe löschen
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for enhanced UX -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+      const inputs = form.querySelectorAll('input, textarea, select');
+
+      let hasChanges = false;
+      inputs.forEach((input) => {
+        input.addEventListener('change', function () {
+          hasChanges = true;
+        });
+      });
+
+      window.addEventListener('beforeunload', function (e) {
+        if (hasChanges) {
+          e.preventDefault();
+          e.returnValue = '';
+        }
+      });
+
+      form.addEventListener('submit', function () {
+        hasChanges = false;
+      });
+    });
+  </script>
+</body>
+</html>

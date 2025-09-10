@@ -16,6 +16,10 @@ The solution branch for the whole lab is `solution-1-aufgaben`
    - Übertrage den Inhalt von `tasks/index.html` aus dem Ausgabenverzeichnis.
 3. Erstelle im Verzeichnis `resources/views/tasks` die Datei `show.blade.php`.
    - Übertrage den Inhalt von `tasks/show.html` aus dem Ausgabenverzeichnis.
+4. Erstelle im Verzeichnis `resources/views/tasks` die Datei `create.blade.php`.
+   - Übertrage den Inhalt von `tasks/create.html` aus dem Ausgabenverzeichnis.
+5. Erstelle im Verzeichnis `resources/views/tasks` die Datei `edit.blade.php`.
+   - Übertrage den Inhalt von `tasks/edit.html` aus dem Ausgabenverzeichnis.
 
 <details>
 <summary>Show solution</summary>
@@ -35,6 +39,8 @@ The solution branch for the whole lab is `solution-1-aufgaben`
 2. Passe den TaskController so an:
    - `index()` rendert die View `tasks/index.blade.php`
    - `show()` rendert die View `tasks/show.blade.php` (ggf. mit Platzhalterdaten)
+   - `create()` rendert die View `tasks/create.blade.php`
+   - `edit()` rendert die View `tasks/edit.blade.php`
 
 <details>
 <summary>Show solution</summary>
